@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Countdown</title>
+</head>
+
+<body>
+  <script>
+    function countdown() {
+      // ลดจำนวนลงทีละ 1
+      seconds--;
+
+      // แสดงจำนวนบนหน้าเว็บ
+      document.getElementById("countdown").textContent = seconds;
+
+      // ตรวจสอบว่าจำนวนลดลงเหลือ 0 แล้วหรือไม่
+      if (seconds <= 0) {
+        // หยุดนับถอยหลัง
+        window.clearInterval(interval);
+      }
+    }
+
+    // เริ่มต้นการนับถอยหลัง
+    var seconds = 10;
+    var interval = window.setInterval(countdown, 1000);
+  </script>
+
+  <p>
+    <span id="countdown"></span> วินาที
+  </p>
+</body>
+
+</html>

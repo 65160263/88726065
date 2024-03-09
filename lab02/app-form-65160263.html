@@ -1,0 +1,107 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>HomeWork#2</title>
+</head>
+<body>
+<h1>ใบสมัครงาน</h1>
+    <form>
+        <table>
+            <tr>  
+                <td><label for="name"><h3>ชื่อ *</h3></label></td> 
+                <td><label for="lname"><h3>นามสกุล *</h3></label></td>   
+            </tr>
+            <tr>  
+                <td><input type="text" id="name" name="name" style="width: 190px;" required></td> 
+                <td><input type="text" id="lname" name="lname" style="width: 190px;" required></td>    
+            </tr> 
+
+            <tr>
+               <td><label for="email"><h3>อีเมล *</h3></label></td> 
+            </tr>
+            <tr >
+                <td colspan="2"><input type="email" id="email" name="email" style="width: 400px;" required ></td>
+                
+            </tr>
+             
+            <tr>
+                <td><label for="lweb"><h3>เว็บไซด์ผลงาน</h3></label></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="text" id="lweb" name="lweb" style="width: 400px;" placeholder="http://" required></td>
+            </tr>
+            
+            <tr>
+                <td colspan="2"><label for="role"><h3>ตำแหน่งที่ต้องการสมัคร *</h3></label></td>
+            </tr>
+            <tr>
+               <td colspan="2"><input type="text" id="role" name="role" style="width: 400px;" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="salary"><h3>เงินเดือนที่ต้องการ</h3></label></td>
+                <td><label for="swork"><h3>จะเริ่มงานได้เมื่อไหร่</h3></label></td>
+            </tr>
+            <tr>  
+                <td><input type="text" id="salary" name="salary" style="width: 190px;" required></td> 
+                <td><input type="text" id="swork" name="swork" style="width: 190px;" required></td>    
+            </tr> 
+
+            <tr>
+                <td><label for="phon"><h3>โทรศัพท์มือถือ *</h3></label></td>
+                <td><label for="hphon"><h3>โทรศัพท์บ้าน</h3></label></td>
+            </tr>
+            <tr>  
+                <td><input type="tel" id="phon" name="phon" style="width: 190px;" required></td> 
+                <td><input type="tel" id="hphon" name="hphon" style="width: 190px;" required></td>    
+            </tr> 
+           
+            <tr>
+                <td colspan="2"><label for="move"><h3>คุณสะดวกย้ายที่อยู่หรือไม่</h3></label></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="radio" name="move" id="can" value="สะดวก" required />
+                    <label for="can">สะดวก</label>
+                    <input type="radio" name="move" id="ncan" value="ไม่สะดวก" required />
+                    <label for="ncan">ไม่สะดวก</label>
+                    <input type="radio" name="move" id="can" value="ไม่แน่ใจ" required />
+                    <label for="can">ไม่แน่ใจ</label>
+                </td>
+            </tr>
+          
+            <tr>
+                <td><label for="lwork"><h3>ลักษณะงานที่ทำล่าสุด</h3></label></td>
+            </tr>
+            <tr>
+               <td colspan="2"><input type="text" id="lwork" name="lwork" style="width: 400px;" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="question"><h3>คำถาม</h3></label></td>
+            </tr>
+            <tr>
+               <td colspan="2"><textarea name="question" id="question" cols="60" rows="10"></textarea></td>
+            </tr>
+            <br />
+            <tr>
+              <td colspan="2" style="text-align: center;"> 
+                <button  type="submit">ส่งใบสมัคร</button> 
+             </td>
+             </tr>
+           
+        </table>
+        
+    </form>
+   
+
+</body>
+        
+
+
+
+
+
+
+
+</html>

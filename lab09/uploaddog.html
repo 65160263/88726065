@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1>Upload a Dog</h1>
+      </header>
+      <input
+        type="file"
+        id="fileInput"
+        accept="image/*"
+        onchange="previewImage(event)"
+      />
+
+      <img
+        id="preview"
+        src="#"
+        alt="Preview"
+        style="
+          display: none;
+          align-items: center;
+          max-width: 100%;
+          border-radius: 8px;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        "
+      />
+      <button onclick="uploadImage()" id="uploadResults">Upload</button>
+      <div id="suc"></div>
+    </div>
+    <script>
+      function previewImage(event) {
+        const input = event.target;
+        const preview = document.getElementById("preview");
+
+        const file = input.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function () {
+          preview.src = reader.result;
+          preview.style.display = "block";
+        };
+
+        if (file) {
+          reader.readAsDataURL(file);
+        } else {
+          preview.src = "";
+          preview.style.display = "none";
+        }
+      }
+
+      const API_URL = "https://api.thedogapi.com/v1/";
+      const API_KEY =
+        "live_EG2vaN0JsmVRo9ximM44AS6PmepXHMOvD2haT5Wicu5qejqZdLxkm1rFGD7CEBja";
+
+      function uploadImage() {
+        const fileInput = document.getElementById("fileInput");
+        const file = fileInput.files[0];
+        const formData = new FormData();
+        formData.append("file", file);
+
+        fetch(`${API_URL}images/upload`, {
+          method: "POST",
+          headers: {
+            "x-api-key": API_KEY,
+          },
+          body: formData,
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            document.getElementById("suc").innerHTML = `<br>
+        Image uploaded successfully`;
+            setTimeout(() => {
+              window.location.href = "index.html";
+            }, 1000);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+
+      function BackToIndexHtml() {
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>

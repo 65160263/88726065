@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript</title>
+</head>
+
+<body>
+  <script>
+    function outputDate() {
+      var d = new Date();
+      var day = d.getDay();
+      var date = d.getDate();
+      var month = d.getMonth();
+      var year = d.getFullYear();
+      var hour = d.getHours();
+      var minute = d.getMinutes();
+      var second = d.getSeconds();
+
+      var dayList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      var monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      var dateString = dayList[day] + ", " + date + " " + monthList[month] + " " + year;
+      var timeString = hour + ":" + minute + ":" + second;
+
+      document.write(dateString + "<br>");
+      document.write(timeString);
+    }
+  </script>
+
+  <script>
+    outputDate();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+{
+    "books": [
+      {
+        "id": 1,
+        "name": "จิตวิทยาสายดาร์ก",
+        "price": "225",
+        "author1": "Dr.Hiro1",
+        "author2": "Dr.Hiro2",
+        "author3": "Dr.Hiro3"
+      },
+      {
+        "id": 2,
+        "name": "ใช้คลื่นพลังบวกดึงดูดพลังสุข",
+        "price": "250",
+        "author1": "เว็กซ์ คิงส์1",
+        "author2": "เว็กซ์ คิงส์2",
+        "author3": "เว็กซ์ คิงส์3"
+      },
+      {
+        "id": 3,
+        "name": "ชุดมหาศึกแห่งดูน",
+        "price": "679",
+        "author1": " Frank Herbert1",
+        "author2": " Frank Herbert2",
+        "author3": "  Frank Herbert3"
+      }
+    ]
+  }
+  

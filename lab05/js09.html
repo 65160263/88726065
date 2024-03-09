@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Input</title>
+</head>
+
+<body>
+  <script>
+    function createInput(type, placeholder, className) {
+      // สร้างองค์ประกอบ input
+      var input = document.createElement("input");
+
+      // ตั้งค่าประเภทของ input
+      input.type = type;
+
+      // ตั้งค่าค่าเริ่มต้นของ input
+      input.value = placeholder;
+
+      // เพิ่มคลาสให้กับ input
+      input.className = className;
+
+      // คืนค่าองค์ประกอบ input
+      return input;
+    }
+
+    // สร้างกล่องข้อความแบบข้อความ
+    var textInput = createInput("text", "ป้อนข้อความ", "my-input");
+
+    // สร้างกล่องข้อความแบบรหัส
+    var codeInput = createInput("code", "ป้อนโค้ด", "my-input");
+
+    // เพิ่มกล่องข้อความทั้งสองลงบนหน้าเว็บ
+    document.body.appendChild(textInput);
+    document.body.appendChild(codeInput);
+  </script>
+</body>
+
+</html>

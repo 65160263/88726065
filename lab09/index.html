@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <style>
+    h1 {
+      text-align: center;
+      font-style: bold;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <header>
+        <h1>THE DOG</h1>
+      </header>
+      <a href="uploaddog.html"><button>Upload dog</button></a>
+      <div class="dog-container" id="uploadeddogs"></div>
+    </div>
+
+    <script>
+      const API_URL = "https://api.thedogapi.com/v1/";
+      const API_KEY =
+        "live_EG2vaN0JsmVRo9ximM44AS6PmepXHMOvD2haT5Wicu5qejqZdLxkm1rFGD7CEBja";
+
+      function Uploadeddogs() {
+        fetch(`${API_URL}images/?limit=10&page=0&order=DESC`, {
+          method: "GET",
+          headers: {
+            "x-api-key": API_KEY,
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            const uploadeddogs = document.getElementById("uploadeddogs");
+            if (data.length === 0) {
+              uploadeddogs.innerHTML = "No uploaded dogs found.";
+            } else {
+              data.forEach((dog) => {
+                const dogDiv = document.createElement("div");
+                dogDiv.innerHTML = `
+            <div style="position: relative;">
+              <img src="${dog.url}" width="22%" title="${dog.id}"/>  
+              <button onclick="deleteDog('${dog.id}')"><img src="https://cdn.iconscout.com/icon/free/png-256/free-delete-2902143-2411575.png" style="width: 50px; height: 50px;"></button>
+            </div>`;
+                uploadeddogs.appendChild(dogDiv);
+              });
+            }
+          })
+          .catch((error) => console.error("Error fetching Dogs:", error));
+      }
+
+      function deleteDog(dogId) {
+        fetch(`${API_URL}images/${dogId}`, {
+          method: "DELETE",
+          headers: {
+            "x-api-key": API_KEY,
+          },
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to delete dog.");
+            }
+          })
+          .then(() => {
+            console.log("Dog deleted successfully");
+            alert("Image deleted successfully");
+
+            window.location.reload();
+          })
+          .catch((error) => {
+            console.error("Error deleting dog:", error);
+          });
+      }
+      Uploadeddogs();
+    </script>
+  </body>
+</html>

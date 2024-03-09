@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript</title>
+</head>
+
+<body>
+  <script>
+    function outputDate() {
+      var d = new Date();
+      var day = d.getDay();
+      var date = d.getDate();
+      var month = d.getMonth();
+      var year = d.getFullYear();
+      var hour = d.getHours();
+      var minute = d.getMinutes();
+      var second = d.getSeconds();
+
+      var dayList = ["วันอาทิตย์", "วันจันทร์", "วันอังคาร", "วันพุธ", "วันพฤหัสบดี", "วันศุกร์", "วันเสาร์"];
+      var monthList = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
+      var dateString = dayList[day] + ", " + date + " " + monthList[month] + " พ.ศ. " + year;
+      var timeString = hour + ":" + minute + ":" + second;
+
+      // แสดงสตริงข้อความบนหน้าเว็บ
+      document.write(dateString + "<br>");
+      document.write(timeString);
+    }
+  </script>
+
+  <script>
+    outputDate();
+  </script>
+</body>
+
+</html>
